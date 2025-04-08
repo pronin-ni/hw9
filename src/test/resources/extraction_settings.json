@@ -1,0 +1,21 @@
+{
+    "ocrDPI": 300,
+    "attempts": 3,
+    "languages": [
+        "rus",
+        "eng"
+    ],
+    "allowEmpty": true,
+    "ocrStrategy": "NO_OCR",
+    "allowPartials": true,
+    "pdfDetectAngles": true,
+    "extractionTimeout": "10 minutes",
+    "allowTotalException": false,
+    "pdfMaxMainMemoryBytes": 4294967296,
+    "allowTemporalException": true,
+    "pdfExtractInlineImages": true,
+    "allowStoreOriginalFiles": true,
+    "memoryUsageSourceSizeBytes": 50000000,
+    "originalFilesBufferSizeBytes": 10737418240,
+    "processingResourceConsumption": 1
+}
