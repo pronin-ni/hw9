@@ -14,11 +14,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FilesZipParsingTest {
     private final ClassLoader classLoader = FilesZipParsingTest.class.getClassLoader();
-    String zipFile = "archive_2.zip";
+    String zipFile = "archive_1.zip";
 
     @DisplayName("Проверка парсинга pdf файла в zip архиве")
     @Test
@@ -32,6 +33,7 @@ public class FilesZipParsingTest {
                     PDF pdf = new PDF(zip);
                     found = true;
                     assertTrue(pdf.text.contains("Тестовое мероприятие"));
+                    return;
                 }
             }
             assertTrue(found, "PDF файл не найден в архиве!");
@@ -49,8 +51,8 @@ public class FilesZipParsingTest {
                 if (entry.getName().equals("indicatorsReport (3).xlsx")) {
                     found = true;
                     XLS xlsx = new XLS(zip);
-                    assertTrue(xlsx.excel.getSheetAt(0).getRow(2).getCell(1).getStringCellValue().equals("Перечень показателей деятельности ЦОПП"));
-                    assertTrue(xlsx.excel.getSheetAt(0).getRow(3).getCell(1).getStringCellValue().equals("Созданы цифровая платформа и сайт ЦОПП в сети Интернет"));
+                    assertEquals("Перечень показателей деятельности ЦОПП", xlsx.excel.getSheetAt(0).getRow(2).getCell(1).getStringCellValue());
+                    assertEquals("Созданы цифровая платформа и сайт ЦОПП в сети Интернет", xlsx.excel.getSheetAt(0).getRow(3).getCell(1).getStringCellValue());
                     return;
                 }
             }
