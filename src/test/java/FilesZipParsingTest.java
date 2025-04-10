@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FilesZipParsingTest {
     private final ClassLoader classLoader = FilesZipParsingTest.class.getClassLoader();
-    String zipFile = "archive_1.zip";
+    String zipFile = "archive.zip";
 
     @DisplayName("Проверка парсинга pdf файла в zip архиве")
     @Test
